@@ -1,6 +1,32 @@
 import platform
 import socket
 
+
+def check_tcp_port():
+    hostname = input("Enter hostname: ")
+
+    try:
+        port = int(input("Enter port: "))
+
+        with socket.create_connection((hostname, port), timeout=3):
+            print(f"[Success] Port {port} is OPEN on {hostname}")
+
+    except ValueError:
+        print("[Error] Port must be a number")
+
+    except socket.gaierror:
+        print(f"[Error] Could not resolve hostname: {hostname}")
+
+    except ConnectionRefusedError:
+        print(f"[Error] Port {port} is CLOSED on {hostname}")
+
+    except TimeoutError:
+        print(f"[Error] Connection timed out")
+
+    except OSError as error:
+        print(f"[Error] Connection failed: {error}")
+
+
 def check_dns():
     hostname = input("Enter hostname: ")
 
@@ -34,7 +60,7 @@ def main():
     if choice == "1":
         check_dns()
     elif choice == "2":
-        print("TCP port check selected")
+        check_tcp_port()
     elif choice == "3":
         info = get_system_info()
         print("Operating system:", info["system"])
