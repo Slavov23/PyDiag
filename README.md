@@ -1,4 +1,5 @@
-# PyDiag — Python IT Diagnostics Tool
+тест# PyDiag — Python IT Diagnostics Tool
+[![PyDiag Tests](https://github.com/Slavov23/PyDiag/actions/workflows/tests.yml/badge.svg)](https://github.com/Slavov23/PyDiag/actions/workflows/tests.yml)
 
 PyDiag is a lightweight command-line IT diagnostics tool built with Python. It provides basic network diagnostic checks and system information through an interactive menu.
 
